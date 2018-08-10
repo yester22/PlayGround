@@ -3,10 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>고객목록</title>
-	<script src="/resources/vue/vue.min.js"></script> 
+	<script src="/resources/vue/vue.min.js"></script>
 	<link href="/webjars/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"> 
 	<script src="/webjars/bootstrap/4.1.2/js/bootstrap.min.js?v=iTdcQLdhilorfQsoxwYdUx39Ev8f-pgcBu51zsXdT2o1"></script>
 	<script src="/webjars/jquery/1.9.1/jquery.min.js"></script>
+	
+	
 	<script src="/js/popup.js"></script> 
 </head>
 <body>
@@ -72,19 +74,26 @@
 			<div class="form-group row">
     			<label for="inputPassword" class="col-sm-2 col-form-label">팝업명</label>
     			<div class="col-sm-10">
-			    	<input type="text" class="form-control" id="inputPassword" placeholder="팝업명">
+			    	<input type="text" class="form-control" id="popupName" placeholder="팝업명">
 			    </div>
   			</div>
-			<div class="dropdown-menu">
-      			<a class="dropdown-item" href="#">Action</a>
-    		</div>
 			<div class="form-group row">
-    			<label for="inputPassword" class="col-sm-2 col-form-label">팝업명</label>
+    			<label for="divOptions" class="col-sm-2 col-form-label">팝업 타입</label>
     			<div class="col-sm-10">
-			    	<input type="text" class="form-control" id="inputPassword" placeholder="팝업명">
+    				<select id="divOptions" class="form-control">
+    					<template v-if="codeList.length > 0">
+	  						<option v-for="item in codeList">{{ item.codeNm }}</option>
+						</template>
+					</select>
 			    </div>
   			</div>
-			
+			<div class="form-group row">
+    			<label for="divOptions" class="col-sm-2 col-form-label">내용</label>
+    			<div class="col-sm-10">
+    				 <div id="summernote"></div>
+				</div>
+			</div>
+						
 			<div id="btArea" align="right">
 				<a class="btn btn-warning" v-on:click="write()" href="#">등록</a>
 				<a class="btn btn-warning" v-on:click="cancelWrite()" href="#">취소</a>

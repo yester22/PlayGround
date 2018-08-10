@@ -12,6 +12,8 @@ $(document).ready(function() {
 			write : function() {
 				$("#divList").hide();
 				$("#divWrite").show();
+				
+				divWrite.load();
 			}
 		}
 	});
@@ -35,7 +37,6 @@ $(document).ready(function() {
 				});
 			},
 			write : function () {
-				divWrite.load();
 				//$("#searchList").trigger("click");
 			}
 		}
