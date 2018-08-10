@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.playground.jobs.dao.PopupDao">
+
+	<select id="list" parameterType="popupVo" resultType="popupVo">
+		/** kr.playground.jobs.dao.PopupDao.list **/
+		SELECT  
+				popup_id, 
+				popup_name, 
+				popup_type, 
+				contents, 
+				height, 
+				width, 
+				start_y, 
+				start_x, 
+				DATE_FORMAT(start_date, '%Y-%m-%d %h:%i') start_date, 
+				DATE_FORMAT(end_date, '%Y-%m-%d %h:%i') end_date, 
+				url, 
+				use_yn, 
+				reg_id, 
+				DATE_FORMAT(reg_date, '%Y-%m-%d %h:%i') reg_date,
+				upt_id, 
+				DATE_FORMAT(upt_date, '%Y-%m-%d %h:%i') upt_date
+		  FROM T_POPUP
+		 <where>
+		 	<if test="popupId != null and popupId != ''">AND popup_id = #{popupId}</if>
+		 	<if test="popupName != null and popupName != ''">AND popup_name = #{popupName}</if>
+		 </where>
+		 
+		 LIMIT ${startNum}, ${pageSize}
+		 
+	</select>
+
+	<select id="view" parameterType="popupVo" resultType="popupVo">
+		/** kr.playground.jobs.dao.PopupDao.view **/
+		SELECT 	popup_id, 
+				popup_name, 
+				popup_type, 
+				contents, 
+				height, 
+				width, 
+				start_y, 
+				start_x, 
+				DATE_FORMAT(start_date, '%Y-%m-%d %h:%i') start_date, 
+				DATE_FORMAT(end_date, '%Y-%m-%d %h:%i') end_date, 
+				url, 
+				use_yn, 
+				reg_id, 
+				DATE_FORMAT(reg_date, '%Y-%m-%d %h:%i') reg_date,
+				upt_id, 
+				DATE_FORMAT(upt_date, '%Y-%m-%d %h:%i') upt_date
+		  FROM T_POPUP
+		 WHERE popup_id = #{popupId}
+	</select>
+
+	<select id="count" parameterType="popupVo" resultType="Integer">
+		/** kr.playground.jobs.dao.PopupDao.count **/
+		SELECT COUNT(1) CNT
+		  FROM T_POPUP
+		<where>
+		 	<if test="popupName != null and popupName != ''">AND popup_name = #{popupName}</if>
+		 	<if test="popupId != null and popupId != ''">AND popup_id = #{popupId}</if>
+		 </where>
+	</select>
+
+
+	<insert id="insert" parameterType="popupVo" >
+		/** kr.playground.jobs.dao.PopupDao.insert **/
+		
+		 <selectKey resultType="string" keyProperty="NewPopupId" order="BEFORE">
+        	SELECT MAX(popup_id) + 1 FROM T_POPUP        
+    	</selectKey> 
+		
+		INSERT INTO T_POPUP (
+			popup_id, 
+			popup_name, 
+			popup_type, 
+			contents, 
+			height, 
+			width, 
+			start_y, 
+			start_x, 
+			start_date, 
+			end_date, 
+			url, 
+			use_yn, 
+			reg_id, 
+			reg_date
+		) VALUES (
+			#{NewPopupId}
+			#{popupName}, 
+			#{popupType}, 
+			#{contents}, 
+			#{height}, 
+			#{width}, 
+			#{startY}, 
+			#{startX}, 
+			#{startDate}, 
+			#{endDate}, 
+			#{url}}, 
+			#{useYn}, 
+			#{regId}, 
+			NOW() 
+		)
+	</insert>
+	
+	<update id="update" parameterType="popupVo" >
+		/** kr.playground.jobs.dao.PopupDao.update **/
+		UPDATE T_POPUP
+		  SET 
+		  	     upt_id = #{uptId}
+		       , upt_date = NOW()
+		      	<if test="popupName != null and popupName != ''">, popup_name= #{popupName}</if>
+				<if test="popupType != null and popupType != ''">, popup_type = #{popupType}</if> 
+				<if test="contents != null and contents != ''">, contents = #{contents}</if> 
+				<if test="height != null and height != ''">, height = #{height}</if> 
+				<if test="width != null and width != ''">, width = #{width}</if> 
+				<if test="startY != null and startY != ''">, start_y = #{startY}</if> 
+				<if test="startX != null and startX != ''">, start_x = #{startX}</if> 
+				<if test="startDate != null and startDate != ''">, start_date = #{startDate}</if> 
+				<if test="endDate != null and endDate != ''">, end_date = #{endDate}</if> 
+				<if test="url != null and url != ''">, url =  #{url}</if> 
+				<if test="useYn != null and useYn != ''">, use_yn =  #{useYn}</if> 
+		 WHERE popup_id = #{popupId}
+	</update>
+	
+	
+	<delete id="delete" parameterType="popupVo" >
+		/** kr.playground.jobs.dao.PopupDao.delete **/
+		DELETE FROM T_POPUP
+		 WHERE popup_id = #{popupId}
+	</delete>
+	
+</mapper>
