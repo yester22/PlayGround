@@ -14,6 +14,7 @@ public class CodeVo extends AbstractVo {
 	private String useYn   ;
 	private String delYn   ;
 	
+	
 	public String getCodeGrp() {
 		return codeGrp;
 	}
