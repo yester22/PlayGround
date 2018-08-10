@@ -1,10 +1,13 @@
 package kr.playground.jobs.vo;
 
+import java.io.Serializable;
+
 import kr.playground.jobs.vo.upper.AbstractVo;
 
-public class CodeVo extends AbstractVo {
- 	private String codeGrp ;
-	private String CODE    ;
+public class CodeVo extends AbstractVo implements Serializable {
+ 	
+	private String codeGrp ;
+	private String code    ;
 	private String codeNm  ;
 	private String tmp1    ;
 	private String tmp2    ;
@@ -14,6 +17,8 @@ public class CodeVo extends AbstractVo {
 	private String useYn   ;
 	private String delYn   ;
 	
+	private long count;
+	
 	
 	public String getCodeGrp() {
 		return codeGrp;
@@ -21,12 +26,7 @@ public class CodeVo extends AbstractVo {
 	public void setCodeGrp(String codeGrp) {
 		this.codeGrp = codeGrp;
 	}
-	public String getCODE() {
-		return CODE;
-	}
-	public void setCODE(String cODE) {
-		CODE = cODE;
-	}
+	
 	public String getCodeNm() {
 		return codeNm;
 	}
@@ -74,6 +74,30 @@ public class CodeVo extends AbstractVo {
 	}
 	public void setDelYn(String delYn) {
 		this.delYn = delYn;
+	}
+	/**
+	 * @return the code
+	 */
+	public String getCode() {
+		return code;
+	}
+	/**
+	 * @param code the code to set
+	 */
+	public void setCode(String code) {
+		this.code = code;
+	}
+	/**
+	 * @return the count
+	 */
+	public long getCount() {
+		return count;
+	}
+	/**
+	 * @param count the count to set
+	 */
+	public void setCount(long count) {
+		this.count = count;
 	}
 
 	

@@ -12,6 +12,7 @@
     
     <typeAliases>
 		<typeAlias alias="popupVo" type="kr.playground.jobs.vo.PopupVo" />
+		<typeAlias alias="codeVo" type="kr.playground.jobs.vo.CodeVo" />
 	</typeAliases>
     
 </configuration>

@@ -20,7 +20,7 @@ $(document).ready(function() {
 		el: '#tbPopup',
 		data: {
 		    message: 'Hello Vue!',
-		    results : []
+		    results : [] 
 		},
 		methods:{
 			search:function() {
@@ -33,6 +33,10 @@ $(document).ready(function() {
 						return;
 					}
 				});
+			},
+			write : function () {
+				divWrite.load();
+				//$("#searchList").trigger("click");
 			}
 		}
 	});
@@ -41,18 +45,24 @@ $(document).ready(function() {
 		el: '#divWrite',
 		data: {
 		    message: 'Hello Vue!',
-		    results : []
+		    results : [],
+		    codeList : []
 		},
 		methods:{
-			write : function () {
-				
-							
-				
-				$("#searchList").trigger("click");
-			},
 			cancelWrite : function () {
 				$("#divList").show();
 				$("#divWrite").hide();
+			},
+			load : function()  {
+				fetch("/admin/common/code/list?codeGrp=SPANDIV").then(res => res.json())
+				.then(res => {
+					if ( res.RESULT == "OK" ) {
+						this.codeList = res.LIST;
+					} else {
+						alert ( res.MSG );
+						return;
+					}
+				});			
 			}
 		}
 	});
