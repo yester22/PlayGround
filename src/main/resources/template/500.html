@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | 500 Error</title>
+
+    <link href="/resources/bootstrap/inspina/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/bootstrap/inspina/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/resources/bootstrap/inspina/css/animate.css" rel="stylesheet">
+    <link href="/resources/bootstrap/inspina/css/style.css" rel="stylesheet">
+
+  	<!-- Mainly scripts -->
+  	<script src="/resources/bootstrap/inspina/js/jquery-3.1.1.min.js"></script>
+    <script src="/resources/bootstrap/inspina/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+        function keydowncheck() {
+            var result = true;
+            var keycode = event.keyCode;
+            if(123 == keycode) //F12 키코드
+            {
+            result = false;
+            }
+            return result;
+        }
+    </script>
+</head>
+
+
+<body class="gray-bg" onkeydown="return keydowncheck();">
+
+
+
+    <div class="middle-box text-center animated fadeInDown">
+        <h1>500</h1>
+        <h3 class="font-bold">내부서버 에러</h3>
+
+        <div class="error-desc">
+        	서버에서 오류가 발생하였습니다.<br/>
+        	로그인을 다시 하시려면 버튼을 클릭하세요: <br/>
+        	<a href="index.html" class="btn btn-primary m-t">로그인</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
