@@ -63,9 +63,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>1.4.0.RELEASE</version>
 		</dependency>
-		
-		
+
+
 		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -268,7 +269,9 @@
 			<artifactId>jquery</artifactId>
 			<version>1.9.1</version>
 		</dependency>
-
+	
+	
+	
 	</dependencies>
 
 	<build>

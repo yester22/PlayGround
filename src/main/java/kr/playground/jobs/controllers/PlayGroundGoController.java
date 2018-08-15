@@ -1,19 +1,15 @@
-package kr.playground.common.controller;
+package kr.playground.jobs.controllers;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.apache.juli.logging.Log;
-import org.apache.juli.logging.LogFactory;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 import kr.playground.common.controller.upper.AbstractController;
-import kr.playground.common.interceptor.SessionInterceptor;
 
 /**
  * page 다이렉션을 위한 컨트롤러
@@ -23,25 +19,36 @@ import kr.playground.common.interceptor.SessionInterceptor;
 @Controller
 public class PlayGroundGoController extends AbstractController {
 
+	
 	/** page 이동시키기
 	 * @param page
 	 * @param request
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/go")
-	public ModelAndView go ( @RequestParam("page") String page, HttpServletRequest request ) throws Exception {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value="/go", method = RequestMethod.GET )
+	public String go ( @RequestParam("page") String page, HttpServletRequest request,  HttpServletResponse response, Model model )  {
 		try {
 			log.debug("##############################################");
 			log.debug(this.getClass() + "s parameter = " + page);
 			
-			mav.setViewName( page );
+			model.addAttribute("test", "test");
 			
 			
 		} catch ( Exception e ) {
-			throw new Exception(e);
+			e.printStackTrace();
 		}
-		return mav;
+		return page;
 	}
+
+	 @GetMapping("/")        
+	 public String root(Model model) throws Exception {        
+		 return "redirect:/index";         
+	 }
+	
+	 @GetMapping("/index")        
+	 public String home(Model model) throws Exception {        
+		 return "index";         
+	 }
+	
 }

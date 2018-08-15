@@ -19,13 +19,13 @@ public class PlayGroundErrorController implements ErrorController {
 			Integer statusCode = Integer.valueOf(status.toString());
 
 			if(statusCode == HttpStatus.NOT_FOUND.value()) {
-				return "404.html";
+				return "404";
 			}
 			else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
-				return "500.html";
+				return "500";
 			}
 		}
-		return "404.html";
+		return "404";
 
 	}
 

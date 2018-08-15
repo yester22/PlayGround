@@ -8,8 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class InterceptorAppender extends  WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-      /*  registry.addInterceptor(new SessionInterceptor())
+      registry.addInterceptor(new SessionInterceptor())
                 .addPathPatterns("/admin/*")
-                .excludePathPatterns("/"); */
+                .excludePathPatterns("/error")
+                .excludePathPatterns("/login");
+                ;
     }
 }
