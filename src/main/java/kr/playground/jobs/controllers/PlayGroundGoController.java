@@ -40,15 +40,5 @@ public class PlayGroundGoController extends AbstractController {
 		}
 		return page;
 	}
-
-	 @GetMapping("/")        
-	 public String root(Model model) throws Exception {        
-		 return "redirect:/index";         
-	 }
-	
-	 @GetMapping("/index")        
-	 public String home(Model model) throws Exception {        
-		 return "index";         
-	 }
 	
 }

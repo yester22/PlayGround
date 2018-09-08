@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @SuppressWarnings("deprecation")
 @Configuration 
 @EnableWebMvc 
-public class MvcConfiguration extends WebMvcConfigurerAdapter
+public class MvcConfig extends WebMvcConfigurerAdapter
 { 
 	/** viewResolver 선언
 	 * @return

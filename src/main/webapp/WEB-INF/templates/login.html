@@ -16,6 +16,7 @@
   	<!-- Mainly scripts -->
   	<script src="/resources/bootstrap/inspina/js/jquery-3.1.1.min.js"></script>
     <script src="/resources/bootstrap/inspina/js/bootstrap.min.js"></script>
+    <script src="/js/login.js"></script>
     
 
 </head>
@@ -33,14 +34,14 @@
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>
             <p>로그인 하셔서, 모임을 개설하고 관리하세요</p>
-            <form class="m-t" role="form" action="index.html">
+            <form id="frmLogin" method="post">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Username" required="">
+                    <input type="text" name="memberId" class="form-control" placeholder="user id input" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="">
+                    <input type="password" name="pwd" class="form-control" placeholder="Password" required="">
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b" onclick="javascript:location.href='/go?page=500'">로그인</button>
+                <button type="button" class="btn btn-primary block full-width m-b" id="btnLogin">로그인</button>
 
                 <a href="#"><small>패스워드를 잃어버리셨나요?</small></a>
                 <p class="text-muted text-center"><small>계정이 존재하지 않으신가요?</small></p>

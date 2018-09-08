@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.playground.jobs.dao.MenuDao">
+
+	<select id="getGranttedMenuList" parameterType="menuVo" resultType="menuVo">
+		/** kr.playground.jobs.dao.MenuDao.getGranttedMenuList **/
+		 SELECT GM.GRANT_CD
+		      , GM.MENU_CD
+		      , MN.UP_MENU_CD
+		      , MN.MENU_NM
+		      , GM.GRANTW
+		      , GM.GRANTD
+		      , GM.GRANTU
+		      , IF( MN.PROGRAM_YN = 'Y', MN.PROGRAM_URL, '') PROGRAM_URL
+		  FROM T_GRANT_MENU GM
+		 INNER JOIN T_MENU MN ON GM.MENU_CD = MN.MENU_CD
+		 INNER JOIN T_GRANT_MEMBER GMB ON GM.GRANT_CD = GMB.GRANT_CD
+		 INNER JOIN T_GRANT GR ON GR.GRANT_CD = GM.GRANT_CD
+		 WHERE GMB.MEMBER_ID = #{memberId}
+		   AND MN.DISPLAY_YN = 'Y'
+		   AND MN.DEL_YN = 'N'
+		 ORDER BY  MENU_CD ASC
+		  		 , UP_MENU_CD ASC
+				 , MN.ORD_NO  ASC
+	</select>
+
+	
+</mapper>

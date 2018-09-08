@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.playground.jobs.dao.AdminMemberDao">
+
+	<select id="view" parameterType="adminMemberVo" resultType="adminMemberVo">
+		/** kr.playground.jobs.dao.AdminMemberDao.view **/
+		SELECT 	MEMBER_ID, 
+				MEMBER_NM, 
+				PWD, 
+				LAST_LOGIN_DT, 
+				LAST_LOGOUT_DT, 
+				LOGIN_FAIL_CNT, 
+				CHK_ID_CODE, 
+				CHK_PW_CODE, 
+				REG_ID, 
+				REG_DATE, 
+				UPT_ID, 
+				UPT_DATE
+	  	  FROM 
+	  	  		T_ADMIN_MEMBER
+	  	 WHERE  
+	  	 		MEMBER_ID = #{memberId} 
+	</select>
+
+	
+
+</mapper>
