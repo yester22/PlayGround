@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
-
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>PLAYGROUND | 404 Error</title>
@@ -32,7 +32,7 @@
         	브라우져의 새로고침 버튼을 클릭해 보시기 바랍니다.<br/>
         	로그인을 다시 하시려면 아래 버튼을 클릭하시기 바랍니다.
             <form class="form-inline m-t" role="form">
-                <button type="submit" class="btn btn-primary" onClick="javascript:location.href=/login.html;">로그인</button>
+                <button type="submit" class="btn btn-primary" onClick="javascript:location.href='http://localhost:8080/index';">로그인</button>
             </form>
         </div>
     </div>

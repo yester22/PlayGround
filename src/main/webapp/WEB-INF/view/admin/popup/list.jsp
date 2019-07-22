@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<title>고객목록</title>
+	<title>ê³ ê°ëª©ë¡</title>
 	<script src="/resources/vue/vue.min.js"></script>
 	<link href="/webjars/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"> 
 	<script src="/webjars/bootstrap/4.1.2/js/bootstrap.min.js?v=iTdcQLdhilorfQsoxwYdUx39Ev8f-pgcBu51zsXdT2o1"></script>
@@ -30,12 +33,12 @@
 			<thead>
 				<tr>
 					<th><input type="checkbox" id="allCheck" name="allCheck" /></th>
-					<th>순번</th>
-					<th>제목</th>
-					<th>시작포지션</th>
-					<th>시작일자</th>
-					<th>종료일자</th>
-					<th>사용유무</th>
+					<th>ìë²</th>
+					<th>ì ëª©</th>
+					<th>ììí¬ì§ì</th>
+					<th>ììì¼ì</th>
+					<th>ì¢ë£ì¼ì</th>
+					<th>ì¬ì©ì ë¬´</th>
 				</tr>
 			</thead>
 			<tbody id="tbPopup">
@@ -54,7 +57,7 @@
 				
 				<template v-else>
 					<tr>
-						<td colspan="7" align="center">데이터가 없습니다</td>
+						<td colspan="7" align="center">ë°ì´í°ê° ììµëë¤</td>
 					</tr>
 				</template>
 			
@@ -72,13 +75,13 @@
 			<div style="height:10px;"></div>
 			
 			<div class="form-group row">
-    			<label for="inputPassword" class="col-sm-2 col-form-label">팝업명</label>
+    			<label for="inputPassword" class="col-sm-2 col-form-label">íìëª</label>
     			<div class="col-sm-10">
-			    	<input type="text" class="form-control" id="popupName" placeholder="팝업명">
+			    	<input type="text" class="form-control" id="popupName" placeholder="íìëª">
 			    </div>
   			</div>
 			<div class="form-group row">
-    			<label for="divOptions" class="col-sm-2 col-form-label">팝업 타입</label>
+    			<label for="divOptions" class="col-sm-2 col-form-label">íì íì</label>
     			<div class="col-sm-10">
     				<select id="divOptions" class="form-control">
     					<template v-if="codeList.length > 0">
@@ -88,15 +91,15 @@
 			    </div>
   			</div>
 			<div class="form-group row">
-    			<label for="divOptions" class="col-sm-2 col-form-label">내용</label>
+    			<label for="divOptions" class="col-sm-2 col-form-label">ë´ì©</label>
     			<div class="col-sm-10">
     				 <div id="summernote"></div>
 				</div>
 			</div>
 						
 			<div id="btArea" align="right">
-				<a class="btn btn-warning" v-on:click="write()" href="#">등록</a>
-				<a class="btn btn-warning" v-on:click="cancelWrite()" href="#">취소</a>
+				<a class="btn btn-warning" v-on:click="write()" href="#">ë±ë¡</a>
+				<a class="btn btn-warning" v-on:click="cancelWrite()" href="#">ì·¨ì</a>
 			</div>
 			
 		</form>
