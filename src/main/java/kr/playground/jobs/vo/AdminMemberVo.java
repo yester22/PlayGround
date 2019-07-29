@@ -21,6 +21,10 @@ public class AdminMemberVo {
 		this.pwd = pwd;
 	}
 	
+	public AdminMemberVo ( String memberId ) {
+		this.memberId = memberId;
+	}
+	
 	public String getMemberId() {
 		return memberId;
 	}
@@ -94,6 +98,9 @@ public class AdminMemberVo {
 		this.uptDate = uptDate;
 	}
 	
+	public boolean isIsadmin() {
+		return true;
+	}
 	
 	
 }
